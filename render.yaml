@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: uniportal-uz
+    env: python
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    startCommand: gunicorn config.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: uniportal-db
+          property: connectionString
+      - key: OPENAI_API_KEY
+        sync: false
+databases:
+  - name: uniportal-db
+    databaseName: uniportal
+    user: uniportal

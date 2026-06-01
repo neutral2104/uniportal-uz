@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+{% block title %}{{ uni.name }} — UniPortal UZ{% endblock %}
+{% block content %}
+<div class="container py-5">
+
+  <!-- Header -->
+  <div class="card border-0 shadow mb-4" style="background:linear-gradient(135deg,#1a237e,#3949ab)">
+    <div class="card-body p-4 text-white">
+      <div class="d-flex justify-content-between align-items-start flex-wrap gap-3">
+        <div>
+          {% if uni.is_featured %}<span class="badge bg-warning text-dark mb-2"><i class="bi bi-star-fill me-1"></i>Featured</span>{% endif %}
+          <h1 class="fw-bold mb-1">{{ uni.name }}</h1>
+          {% if uni.short_name %}<p class="opacity-75 mb-2">{{ uni.short_name }}</p>{% endif %}
+          <div class="d-flex gap-3 flex-wrap small opacity-75">
+            <span><i class="bi bi-geo-alt me-1"></i>{{ uni.city }}</span>
+            <span><i class="bi bi-building me-1"></i>{{ uni.get_uni_type_display }}</span>
+            {% if uni.founded_year %}<span><i class="bi bi-calendar me-1"></i>Est. {{ uni.founded_year }}</span>{% endif %}
+            {% if uni.total_students %}<span><i class="bi bi-people me-1"></i>{{ uni.total_students|intcomma }} students</span>{% endif %}
+          </div>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          {% if user.is_authenticated %}
+          <button id="favBtn" data-id="{{ uni.id }}"
+                  class="btn {% if is_fav %}btn-warning{% else %}btn-outline-light{% endif %} rounded-pill">
+            <i class="bi bi-heart{% if is_fav %}-fill{% endif %} me-1"></i>
+            {% if is_fav %}Saved{% else %}Save{% endif %}
+          </button>
+          {% endif %}
+          {% if uni.application_link %}
+          <a href="{{ uni.application_link }}" target="_blank" class="btn btn-warning rounded-pill fw-bold">
+            <i class="bi bi-box-arrow-up-right me-1"></i>Apply Now
+          </a>
+          {% endif %}
+          {% if user.is_authenticated and user.is_staff or user.is_authenticated and user.profile.role == 'admin' %}
+          <a href="{% url 'uni_edit' uni.slug %}" class="btn btn-light rounded-pill">
+            <i class="bi bi-pencil me-1"></i>Edit
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row g-4">
+
+    <!-- Main Content -->
+    <div class="col-lg-8">
+
+      {% if uni.description %}
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <h4 class="fw-bold mb-3"><i class="bi bi-info-circle me-2 text-primary"></i>About</h4>
+          <p class="text-muted lh-lg">{{ uni.description }}</p>
+        </div>
+      </div>
+      {% endif %}
+
+      <!-- Programs -->
+      <div class="card border-0 shadow-sm">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <h4 class="fw-bold mb-0"><i class="bi bi-book me-2 text-primary"></i>Programs ({{ faculties.count }})</h4>
+            {% if user.is_authenticated and user.is_staff or user.is_authenticated and user.profile.role == 'admin' %}
+            <a href="{% url 'faculty_create' uni.slug %}" class="btn btn-success btn-sm rounded-pill">
+              <i class="bi bi-plus me-1"></i>Add Program
+            </a>
+            {% endif %}
+          </div>
+
+          {% if faculties %}
+          <div class="accordion" id="programAccordion">
+            {% for fac in faculties %}
+            <div class="accordion-item border mb-2 rounded">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed rounded fw-semibold" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#prog{{ fac.id }}">
+                  <div class="d-flex align-items-center gap-3 w-100 flex-wrap">
+                    <span>{{ fac.name }}</span>
+                    <span class="badge bg-primary-subtle text-primary ms-auto me-3 small">{{ fac.field }}</span>
+                  </div>
+                </button>
+              </h2>
+              <div id="prog{{ fac.id }}" class="accordion-collapse collapse" data-bs-parent="#programAccordion">
+                <div class="accordion-body pt-0">
+                  <div class="row g-3 mt-1">
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-people-fill text-primary"></i>
+                        <div>
+                          <div class="small text-muted">Quotas</div>
+                          <div class="fw-semibold">2024: {{ fac.quota_2024 }} &nbsp;|&nbsp; 2025: {{ fac.quota_2025 }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-graph-up text-warning"></i>
+                        <div>
+                          <div class="small text-muted">Scores</div>
+                          <div class="fw-semibold">{{ fac.min_score }} – {{ fac.max_score }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-cash text-success"></i>
+                        <div>
+                          <div class="small text-muted">Tuition/year</div>
+                          <div class="fw-semibold">${{ fac.tuition_usd|intcomma }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    {% if fac.deadline %}
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-calendar-event text-danger"></i>
+                        <div>
+                          <div class="small text-muted">Deadline</div>
+                          <div class="fw-semibold">{{ fac.deadline|date:"M d, Y" }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endif %}
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-translate text-info"></i>
+                        <div>
+                          <div class="small text-muted">Language</div>
+                          <div class="fw-semibold">{{ fac.language }}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                      <div class="info-chip">
+                        <i class="bi bi-clock text-secondary"></i>
+                        <div>
+                          <div class="small text-muted">Duration</div>
+                          <div class="fw-semibold">{{ fac.duration_years }} years</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if fac.requirements %}
+                  <div class="mt-3 p-3 bg-light rounded small">
+                    <strong>Requirements:</strong> {{ fac.requirements }}
+                  </div>
+                  {% endif %}
+                  {% if user.is_authenticated and user.is_staff or user.is_authenticated and user.profile.role == 'admin' %}
+                  <div class="mt-3 d-flex gap-2">
+                    <a href="{% url 'faculty_edit' fac.pk %}" class="btn btn-outline-primary btn-sm rounded-pill">
+                      <i class="bi bi-pencil me-1"></i>Edit
+                    </a>
+                    <a href="{% url 'faculty_delete' fac.pk %}" class="btn btn-outline-danger btn-sm rounded-pill">
+                      <i class="bi bi-trash me-1"></i>Delete
+                    </a>
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% else %}
+          <p class="text-muted text-center py-4">No programs listed yet.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm sticky-top" style="top:80px">
+        <div class="card-body p-4">
+          <h5 class="fw-bold mb-3">Quick Info</h5>
+          <ul class="list-unstyled mb-0">
+            {% if uni.website %}
+            <li class="py-2 border-bottom"><i class="bi bi-globe me-2 text-primary"></i>
+              <a href="{{ uni.website }}" target="_blank" class="text-decoration-none">Official Website</a>
+            </li>
+            {% endif %}
+            {% if uni.city %}<li class="py-2 border-bottom"><i class="bi bi-geo-alt me-2 text-danger"></i>{{ uni.city }}, Uzbekistan</li>{% endif %}
+            {% if uni.uni_type %}<li class="py-2 border-bottom"><i class="bi bi-building me-2 text-secondary"></i>{{ uni.get_uni_type_display }}</li>{% endif %}
+            {% if uni.faculty_count %}<li class="py-2 border-bottom"><i class="bi bi-book me-2 text-info"></i>{{ uni.faculty_count }} programs</li>{% endif %}
+            {% if uni.min_tuition %}<li class="py-2 border-bottom"><i class="bi bi-cash me-2 text-success"></i>From ${{ uni.min_tuition|intcomma }}/year</li>{% endif %}
+            {% if uni.ranking %}<li class="py-2 border-bottom"><i class="bi bi-trophy me-2 text-warning"></i>Ranked #{{ uni.ranking }}</li>{% endif %}
+          </ul>
+          {% if uni.application_link %}
+          <a href="{{ uni.application_link }}" target="_blank" class="btn btn-primary w-100 rounded-pill mt-3 fw-bold">
+            <i class="bi bi-send me-2"></i>Apply Now
+          </a>
+          {% endif %}
+          <a href="{% url 'ai_chat' %}" class="btn btn-outline-primary w-100 rounded-pill mt-2">
+            <i class="bi bi-robot me-2"></i>Ask AI About This Uni
+          </a>
+          {% if user.is_authenticated and user.is_staff or user.is_authenticated and user.profile.role == 'admin' %}
+          <hr>
+          <a href="{% url 'uni_delete' uni.slug %}" class="btn btn-outline-danger w-100 rounded-pill btn-sm">
+            <i class="bi bi-trash me-1"></i>Delete University
+          </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const favBtn = document.getElementById('favBtn');
+if (favBtn) {
+  favBtn.addEventListener('click', async function() {
+    const resp = await fetch(`/favorites/${this.dataset.id}/toggle/`, {
+      method:'POST', headers:{'X-CSRFToken': getCookie('csrftoken')}
+    });
+    const data = await resp.json();
+    const icon = this.querySelector('i');
+    if (data.status === 'added') {
+      icon.className = 'bi bi-heart-fill me-1';
+      this.className = 'btn btn-warning rounded-pill';
+      this.querySelector('span') && (this.querySelector('span').textContent = 'Saved');
+    } else {
+      icon.className = 'bi bi-heart me-1';
+      this.className = 'btn btn-outline-light rounded-pill';
+    }
+  });
+}
+function getCookie(name) {
+  let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
+}
+</script>
+{% endblock %}

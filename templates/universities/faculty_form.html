@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}{{ title }} — UniPortal UZ{% endblock %}
+{% block content %}
+<div class="container py-5" style="max-width:700px">
+  <div class="card border-0 shadow">
+    <div class="card-header py-3 bg-success">
+      <h4 class="text-white fw-bold mb-0"><i class="bi bi-book me-2"></i>{{ title }} — {{ uni.name }}</h4>
+    </div>
+    <div class="card-body p-4">
+      <form method="post">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label fw-semibold small">{{ field.label }}</label>
+          {{ field }}
+          {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+        </div>
+        {% endfor %}
+        <div class="d-flex gap-2 mt-4">
+          <button type="submit" class="btn btn-success rounded-pill px-4">Save Program</button>
+          <a href="{% url 'uni_detail' uni.slug %}" class="btn btn-outline-secondary rounded-pill px-4">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,327 @@
+{% extends 'base.html' %} {% load static %} {% block title %}AI Assistant —
+UniPortal UZ{% endblock %} {% block extra_css %}
+<style>
+  .chat-container {
+    height: calc(100vh - 200px);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+  }
+  .chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.5rem;
+    scroll-behavior: smooth;
+  }
+  .bubble {
+    max-width: 75%;
+    word-break: break-word;
+    line-height: 1.6;
+  }
+  .bubble.user {
+    background: linear-gradient(135deg, #1a237e, #3949ab);
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+    margin-left: auto;
+  }
+  .bubble.bot {
+    background: #f8f9fa;
+    color: #212529;
+    border-radius: 18px 18px 18px 4px;
+    border: 1px solid #e9ecef;
+  }
+  .bubble.bot pre {
+    background: #e9ecef;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+  .typing-dots span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #adb5bd;
+    border-radius: 50%;
+    margin: 0 2px;
+    animation: bounce 0.9s infinite;
+  }
+  .typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  .typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  @keyframes bounce {
+    0%,
+    60%,
+    100% {
+      transform: translateY(0);
+    }
+    30% {
+      transform: translateY(-8px);
+    }
+  }
+  .suggestion-btn {
+    font-size: 0.8rem;
+  }
+</style>
+{% endblock %} {% block content %}
+<div
+  class="container-fluid px-0"
+  style="background: #f0f2f5; min-height: calc(100vh - 56px)"
+>
+  <div class="row g-0 h-100">
+    <!-- Sidebar -->
+    <div
+      class="col-lg-3 col-xl-2 bg-white border-end d-none d-lg-flex flex-column p-3"
+      style="min-height: calc(100vh - 56px)"
+    >
+      <div class="d-flex align-items-center gap-2 mb-4 pb-3 border-bottom">
+        <div
+          class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white"
+          style="width: 40px; height: 40px; font-size: 1.2rem"
+        >
+          🤖
+        </div>
+        <div>
+          <div class="fw-bold small">UniBot AI</div>
+          <div class="text-success" style="font-size: 0.7rem">● Online</div>
+        </div>
+      </div>
+      <h6 class="text-muted small fw-semibold mb-2">SUGGESTED QUESTIONS</h6>
+      <div class="d-flex flex-column gap-2" id="suggestions">
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          💡 What universities offer Computer Science?
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          🎯 I scored 185 on DTM — what are my options?
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          ⚖️ Compare WIUT vs TUIT programs
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          🎓 What scholarships are available in Uzbekistan?
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          🏥 Best universities for studying medicine?
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          💰 Cheapest international universities in Tashkent?
+        </button>
+        <button
+          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          onclick="sendSuggestion(this)"
+        >
+          📋 What documents do I need to apply?
+        </button>
+      </div>
+      <div class="mt-auto pt-3 border-top">
+        <button
+          class="btn btn-outline-danger btn-sm w-100 rounded-pill"
+          onclick="clearChat()"
+        >
+          <i class="bi bi-trash me-1"></i>Clear Chat
+        </button>
+      </div>
+    </div>
+
+    <!-- Chat Area -->
+    <div
+      class="col-lg-9 col-xl-10 d-flex flex-column"
+      style="min-height: calc(100vh - 56px)"
+    >
+      <div class="bg-white border-bottom p-3 d-flex align-items-center gap-3">
+        <div
+          class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white"
+          style="width: 36px; height: 36px"
+        >
+          🤖
+        </div>
+        <div>
+          <div class="fw-bold">UniBot AI Assistant</div>
+          <div class="text-muted small">
+            Ask anything about university admissions in Uzbekistan
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-messages flex-grow-1" id="chatMessages">
+        <!-- History -->
+        {% if not history %}
+        <div class="text-center py-5" id="welcomeMsg">
+          <div class="display-1 mb-3">🎓</div>
+          <h4 class="fw-bold">Hello! I'm UniBot</h4>
+          <p class="text-muted mb-4">
+            I can help you with university admissions, program comparisons,<br />scholarships,
+            and career guidance in Uzbekistan.
+          </p>
+          <p class="text-muted small">
+            Try one of the suggestions on the left, or type your own question
+            below.
+          </p>
+        </div>
+        {% else %} {% for msg in history %}
+        <div
+          class="d-flex {% if msg.role == 'user' %}justify-content-end{% endif %} mb-3"
+        >
+          {% if msg.role == 'assistant' %}
+          <div
+            class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white me-2 flex-shrink-0"
+            style="width: 32px; height: 32px; font-size: 0.9rem"
+          >
+            🤖
+          </div>
+          {% endif %}
+          <div class="bubble {{ msg.role }} p-3 shadow-sm">
+            {{ msg.content|linebreaksbr }}
+          </div>
+        </div>
+        {% endfor %} {% endif %}
+      </div>
+
+      <!-- Typing indicator -->
+      <div class="px-4 pb-1" id="typingIndicator" style="display: none">
+        <div class="d-flex align-items-center gap-2">
+          <div
+            class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white"
+            style="width: 28px; height: 28px; font-size: 0.8rem"
+          >
+            🤖
+          </div>
+          <div class="bubble bot p-2 px-3 typing-dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input -->
+      <div class="bg-white border-top p-3">
+        <div class="d-flex gap-2">
+          <textarea
+            id="msgInput"
+            class="form-control rounded-pill px-4"
+            rows="1"
+            placeholder="Ask about universities, programs, scholarships…"
+            style="resize: none; overflow: hidden; max-height: 120px"
+          ></textarea>
+          <button
+            id="sendBtn"
+            class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0"
+            style="width: 46px; height: 46px"
+            onclick="sendMessage()"
+          >
+            <i class="bi bi-send-fill"></i>
+          </button>
+        </div>
+        <p class="text-muted text-center mt-2 mb-0" style="font-size: 0.7rem">
+          AI responses are for guidance only. Always verify with official
+          university sources.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const input = document.getElementById("msgInput");
+  const msgs = document.getElementById("chatMessages");
+  const typing = document.getElementById("typingIndicator");
+  const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || "";
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+  input.addEventListener("input", function () {
+    this.style.height = "auto";
+    this.style.height = this.scrollHeight + "px";
+  });
+
+  function appendBubble(role, text) {
+    const welcome = document.getElementById("welcomeMsg");
+    if (welcome) welcome.remove();
+
+    const wrap = document.createElement("div");
+    wrap.className = `d-flex ${role === "user" ? "justify-content-end" : ""} mb-3`;
+
+    let html = "";
+    if (role === "assistant") {
+      html += `<div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white me-2 flex-shrink-0" style="width:32px;height:32px;font-size:.9rem">🤖</div>`;
+    }
+    const formatted = text
+      .replace(/\n/g, "<br>")
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      .replace(/\*(.*?)\*/g, "<em>$1</em>");
+    html += `<div class="bubble ${role} p-3 shadow-sm">${formatted}</div>`;
+    wrap.innerHTML = html;
+    msgs.appendChild(wrap);
+    msgs.scrollTop = msgs.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = "";
+    input.style.height = "auto";
+    appendBubble("user", text);
+    typing.style.display = "block";
+    msgs.scrollTop = msgs.scrollHeight;
+
+    try {
+      const resp = await fetch("/ai/api/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken,
+        },
+        body: JSON.stringify({ message: text }),
+      });
+      const data = await resp.json();
+      typing.style.display = "none";
+      appendBubble(
+        "assistant",
+        data.reply || data.error || "Sorry, something went wrong.",
+      );
+    } catch (e) {
+      typing.style.display = "none";
+      appendBubble("assistant", "⚠️ Connection error. Please try again.");
+    }
+  }
+
+  function sendSuggestion(btn) {
+    const text = btn.textContent.replace(/^[^\w]+/, "").trim();
+    input.value = text;
+    sendMessage();
+  }
+
+  async function clearChat() {
+    if (!confirm("Clear this conversation?")) return;
+    await fetch("/ai/clear/", {
+      method: "POST",
+      headers: { "X-CSRFToken": csrftoken },
+    });
+    location.reload();
+  }
+</script>
+{% endblock %}

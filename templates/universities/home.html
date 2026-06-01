@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+{% block title %}UniPortal UZ — Find Your University{% endblock %}
+{% block content %}
+
+<!-- Hero -->
+<section class="hero-section text-white text-center py-5" style="background:linear-gradient(135deg,#1a237e 0%,#283593 50%,#3949ab 100%);min-height:480px;display:flex;align-items:center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <span class="badge bg-warning text-dark mb-3 px-3 py-2 fs-6">🇺🇿 Uzbekistan's #1 University Portal</span>
+        <h1 class="display-4 fw-bold mb-3">Find Your Perfect University</h1>
+        <p class="lead mb-4 opacity-75">Explore {{ total_uni }} universities, {{ total_fac }}+ programs across Uzbekistan. Get AI-powered guidance for your admission journey.</p>
+        <form class="d-flex justify-content-center gap-2 flex-wrap" action="{% url 'uni_list' %}" method="get">
+          <input name="q" type="text" class="form-control form-control-lg rounded-pill px-4" style="max-width:420px" placeholder="Search university or program…">
+          <button class="btn btn-warning btn-lg fw-bold rounded-pill px-4" type="submit">
+            <i class="bi bi-search me-1"></i> Search
+          </button>
+        </form>
+        <div class="mt-4 d-flex justify-content-center gap-4 flex-wrap">
+          <a href="{% url 'ai_chat' %}" class="btn btn-outline-light rounded-pill px-4">
+            <i class="bi bi-robot me-2"></i>Ask AI Assistant
+          </a>
+          <a href="{% url 'uni_list' %}" class="btn btn-light rounded-pill px-4">
+            <i class="bi bi-grid me-2"></i>Browse All
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="py-4" style="background:#f8f9fa;border-bottom:1px solid #e9ecef">
+  <div class="container">
+    <div class="row text-center g-3">
+      <div class="col-6 col-md-3">
+        <div class="stat-card p-3">
+          <div class="fw-bold fs-2 text-primary">{{ total_uni }}+</div>
+          <div class="text-muted small">Universities</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card p-3">
+          <div class="fw-bold fs-2 text-success">{{ total_fac }}+</div>
+          <div class="text-muted small">Programs</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card p-3">
+          <div class="fw-bold fs-2 text-warning">14</div>
+          <div class="text-muted small">Regions</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-card p-3">
+          <div class="fw-bold fs-2 text-danger">AI</div>
+          <div class="text-muted small">Powered</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Filters -->
+<section class="py-4 bg-white">
+  <div class="container">
+    <h5 class="fw-semibold text-center mb-3 text-muted">Quick Filter by City</h5>
+    <div class="d-flex flex-wrap gap-2 justify-content-center">
+      {% for city in cities %}
+      <a href="{% url 'uni_list' %}?city={{ city }}" class="btn btn-outline-primary btn-sm rounded-pill">
+        <i class="bi bi-geo-alt me-1"></i>{{ city }}
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- Featured Universities -->
+{% if featured %}
+<section class="py-5">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="fw-bold mb-0">⭐ Featured Universities</h2>
+      <a href="{% url 'uni_list' %}" class="btn btn-outline-primary rounded-pill">View All <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="row g-4">
+      {% for uni in featured %}
+      <div class="col-sm-6 col-lg-4">
+        <div class="card uni-card h-100 border-0 shadow-sm">
+          <div class="card-header-img d-flex align-items-center justify-content-center text-white fw-bold fs-3"
+               style="height:80px;background:linear-gradient(135deg,{{ forloop.counter|divisibleby:3|yesno:'#1a237e,#1b5e20,#b71c1c' }},{{ forloop.counter|divisibleby:2|yesno:'#283593,#2e7d32,#c62828' }})">
+            {{ uni.short_name|default:uni.name|slice:":3"|upper }}
+          </div>
+          <div class="card-body">
+            <span class="badge bg-primary-subtle text-primary mb-2">{{ uni.get_uni_type_display }}</span>
+            <h6 class="card-title fw-bold">{{ uni.name }}</h6>
+            <p class="text-muted small mb-2"><i class="bi bi-geo-alt me-1"></i>{{ uni.city }}</p>
+            {% if uni.min_tuition %}
+            <p class="small mb-2"><i class="bi bi-cash me-1 text-success"></i>From <strong>${{ uni.min_tuition|intcomma }}</strong>/year</p>
+            {% endif %}
+            <p class="small text-muted"><i class="bi bi-book me-1"></i>{{ uni.faculty_count }} program{{ uni.faculty_count|pluralize }}</p>
+          </div>
+          <div class="card-footer bg-transparent border-0 pt-0">
+            <a href="{% url 'uni_detail' uni.slug %}" class="btn btn-primary btn-sm w-100 rounded-pill">View Details</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- AI CTA -->
+<section class="py-5" style="background:linear-gradient(135deg,#0d47a1,#1565c0)">
+  <div class="container text-center text-white">
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="display-1 mb-3">🤖</div>
+        <h2 class="fw-bold mb-3">Not sure where to start?</h2>
+        <p class="lead opacity-75 mb-4">Ask our AI assistant about admission requirements, scholarships, program comparisons, and career guidance — in English, Uzbek, or Russian.</p>
+        <a href="{% url 'ai_chat' %}" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold">
+          <i class="bi bi-chat-dots-fill me-2"></i>Chat with AI
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recently Added -->
+{% if recent %}
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="fw-bold mb-4">🆕 Recently Added</h2>
+    <div class="row g-3">
+      {% for uni in recent %}
+      <div class="col-sm-6 col-lg-3">
+        <a href="{% url 'uni_detail' uni.slug %}" class="card border-0 shadow-sm text-decoration-none h-100 uni-card">
+          <div class="card-body">
+            <h6 class="fw-bold text-dark">{{ uni.name }}</h6>
+            <p class="text-muted small mb-1"><i class="bi bi-geo-alt me-1"></i>{{ uni.city }}</p>
+            <span class="badge bg-secondary-subtle text-secondary">{{ uni.get_uni_type_display }}</span>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% endblock %}

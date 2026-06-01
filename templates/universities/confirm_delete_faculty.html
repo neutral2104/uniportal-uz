@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container py-5" style="max-width:500px">
+  <div class="card border-0 shadow">
+    <div class="card-body p-4 text-center">
+      <div class="display-3 mb-3">⚠️</div>
+      <h4 class="fw-bold">Delete Program?</h4>
+      <p class="text-muted">This will remove <strong>{{ fac.name }}</strong> from {{ fac.university.name }}.</p>
+      <form method="post" class="d-flex gap-2 justify-content-center mt-4">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger rounded-pill px-4">Delete</button>
+        <a href="{% url 'uni_detail' fac.university.slug %}" class="btn btn-outline-secondary rounded-pill px-4">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

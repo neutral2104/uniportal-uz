@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %}My Profile — UniPortal UZ{% endblock %}
+{% block content %}
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <div class="card border-0 shadow-sm text-center">
+        <div class="card-body p-4">
+          <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white fw-bold mx-auto mb-3"
+               style="width:80px;height:80px;font-size:2rem">
+            {{ user.first_name.0|upper|default:user.username.0|upper }}
+          </div>
+          <h5 class="fw-bold">{{ user.get_full_name|default:user.username }}</h5>
+          <p class="text-muted small">@{{ user.username }}</p>
+          <span class="badge bg-primary-subtle text-primary">{{ user.profile.role|title }}</span>
+          <hr>
+          <div class="text-start small">
+            {% if user.profile.city %}<p class="mb-2"><i class="bi bi-geo-alt me-2 text-muted"></i>{{ user.profile.city }}</p>{% endif %}
+            {% if user.profile.dtm_score %}<p class="mb-2"><i class="bi bi-graph-up me-2 text-muted"></i>DTM Score: <strong>{{ user.profile.dtm_score }}</strong></p>{% endif %}
+            {% if user.profile.budget_usd %}<p class="mb-2"><i class="bi bi-cash me-2 text-muted"></i>Budget: <strong>${{ user.profile.budget_usd|intcomma }}/yr</strong></p>{% endif %}
+            {% if user.profile.preferred_field %}<p class="mb-2"><i class="bi bi-book me-2 text-muted"></i>{{ user.profile.preferred_field }}</p>{% endif %}
+          </div>
+          <a href="{% url 'ai_chat' %}" class="btn btn-outline-primary btn-sm rounded-pill w-100 mt-2">
+            <i class="bi bi-robot me-1"></i>Get AI Recommendations
+          </a>
+        </div>
+      </div>
+      {% if favorites %}
+      <div class="card border-0 shadow-sm mt-3">
+        <div class="card-header bg-transparent fw-semibold border-0 pt-3">
+          <i class="bi bi-heart-fill text-danger me-2"></i>Saved Universities ({{ favorites.count }})
+        </div>
+        <div class="card-body pt-0">
+          {% for fav in favorites %}
+          <div class="d-flex justify-content-between align-items-center py-2 border-bottom">
+            <a href="{% url 'uni_detail' fav.university.slug %}" class="text-decoration-none small fw-semibold text-dark">
+              {{ fav.university.name|truncatechars:28 }}
+            </a>
+            <span class="text-muted" style="font-size:.7rem">{{ fav.added_at|date:"M d" }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-lg-8">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-transparent py-3 border-0">
+          <h5 class="fw-bold mb-0"><i class="bi bi-pencil-square me-2 text-primary"></i>Edit Profile</h5>
+        </div>
+        <div class="card-body p-4">
+          <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row g-3">
+              {% for field in form %}
+              <div class="{% if field.name == 'bio' %}col-12{% else %}col-sm-6{% endif %}">
+                <label class="form-label fw-semibold small">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}<div class="form-text">{{ field.help_text }}</div>{% endif %}
+                {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+              </div>
+              {% endfor %}
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill px-5 mt-4 fw-bold">
+              <i class="bi bi-check2 me-1"></i>Save Changes
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

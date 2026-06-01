@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+{% block title %}Universities — UniPortal UZ{% endblock %}
+{% block content %}
+<div class="container-fluid px-0">
+  <div class="row g-0" style="min-height:calc(100vh - 56px)">
+
+    <!-- Sidebar Filters -->
+    <div class="col-lg-3 col-xl-2 bg-white border-end p-4" style="min-height:100%">
+      <h5 class="fw-bold mb-3"><i class="bi bi-funnel me-2 text-primary"></i>Filters</h5>
+      <form method="get" id="filterForm">
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">SEARCH</label>
+          {{ form.q }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">FIELD OF STUDY</label>
+          {{ form.field }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">CITY</label>
+          {{ form.city }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">TYPE</label>
+          {{ form.uni_type }}
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold text-muted">YOUR DTM SCORE</label>
+          {{ form.min_score }}
+          <div class="form-text">Shows programs you qualify for</div>
+        </div>
+        <div class="mb-4">
+          <label class="form-label small fw-semibold text-muted">MAX TUITION (USD/year)</label>
+          {{ form.max_tuition }}
+        </div>
+        <button type="submit" class="btn btn-primary w-100 rounded-pill mb-2">
+          <i class="bi bi-search me-1"></i> Apply Filters
+        </button>
+        <a href="{% url 'uni_list' %}" class="btn btn-outline-secondary w-100 rounded-pill btn-sm">
+          <i class="bi bi-x me-1"></i> Clear All
+        </a>
+      </form>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-lg-9 col-xl-10 p-4">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <h4 class="fw-bold mb-0">All Universities</h4>
+          <p class="text-muted small mb-0">{{ total }} result{{ total|pluralize }} found</p>
+        </div>
+        {% if user.is_authenticated and user.is_staff or user.is_authenticated and user.profile.role == 'admin' %}
+        <a href="{% url 'uni_create' %}" class="btn btn-success rounded-pill">
+          <i class="bi bi-plus-circle me-1"></i>Add University
+        </a>
+        {% endif %}
+      </div>
+
+      {% if page_obj %}
+      <div class="row g-4">
+        {% for uni in page_obj %}
+        <div class="col-sm-6 col-xl-4">
+          <div class="card uni-card h-100 border-0 shadow-sm position-relative">
+            {% if uni.is_featured %}
+            <div class="position-absolute top-0 end-0 m-2">
+              <span class="badge bg-warning text-dark"><i class="bi bi-star-fill me-1"></i>Featured</span>
+            </div>
+            {% endif %}
+
+            <div class="d-flex align-items-center justify-content-center text-white fw-bold fs-4 rounded-top"
+                 style="height:70px;background:linear-gradient(135deg,#1a237e,#3949ab)">
+              {{ uni.short_name|default:uni.name|slice:":4"|upper }}
+            </div>
+
+            <div class="card-body pb-2">
+              <div class="d-flex gap-2 mb-2 flex-wrap">
+                <span class="badge bg-primary-subtle text-primary small">{{ uni.get_uni_type_display }}</span>
+                <span class="badge bg-secondary-subtle text-secondary small"><i class="bi bi-geo-alt me-1"></i>{{ uni.city }}</span>
+              </div>
+              <h6 class="card-title fw-bold lh-sm">{{ uni.name }}</h6>
+
+              <div class="mt-2 small text-muted">
+                <div><i class="bi bi-book me-1 text-primary"></i><strong>{{ uni.fac_count }}</strong> program{{ uni.fac_count|pluralize }}</div>
+                {% if uni.min_t %}
+                <div><i class="bi bi-cash me-1 text-success"></i>From <strong>${{ uni.min_t|intcomma }}</strong>/yr</div>
+                {% endif %}
+                {% if uni.min_s %}
+                <div><i class="bi bi-graph-up me-1 text-warning"></i>Min score <strong>{{ uni.min_s }}</strong></div>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="card-footer bg-transparent border-0 pt-0 d-flex gap-2">
+              <a href="{% url 'uni_detail' uni.slug %}" class="btn btn-primary btn-sm flex-grow-1 rounded-pill">Details</a>
+              {% if user.is_authenticated %}
+              <button class="btn btn-sm rounded-pill {% if uni.id in fav_ids %}btn-warning{% else %}btn-outline-warning{% endif %} fav-btn"
+                      data-id="{{ uni.id }}" title="{% if uni.id in fav_ids %}Remove favorite{% else %}Add to favorites{% endif %}">
+                <i class="bi bi-heart{% if uni.id in fav_ids %}-fill{% endif %}"></i>
+              </button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if page_obj.has_other_pages %}
+      <nav class="mt-5 d-flex justify-content-center">
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+          <li class="page-item"><a class="page-link rounded-start-pill" href="?{% for k,v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ page_obj.previous_page_number }}"><i class="bi bi-chevron-left"></i></a></li>
+          {% endif %}
+          {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="page-item"><a class="page-link" href="?{% for k,v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+          {% endfor %}
+          {% if page_obj.has_next %}
+          <li class="page-item"><a class="page-link rounded-end-pill" href="?{% for k,v in request.GET.items %}{% if k != 'page' %}{{ k }}={{ v }}&{% endif %}{% endfor %}page={{ page_obj.next_page_number }}"><i class="bi bi-chevron-right"></i></a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+
+      {% else %}
+      <div class="text-center py-5">
+        <div class="display-1 mb-3">🔍</div>
+        <h4>No universities found</h4>
+        <p class="text-muted">Try adjusting your filters or <a href="{% url 'uni_list' %}">clear all filters</a>.</p>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.fav-btn').forEach(btn => {
+  btn.addEventListener('click', async function() {
+    const id = this.dataset.id;
+    const resp = await fetch(`/favorites/${id}/toggle/`, {
+      method:'POST', headers:{'X-CSRFToken': getCookie('csrftoken'), 'Content-Type':'application/json'}
+    });
+    const data = await resp.json();
+    const icon = this.querySelector('i');
+    if (data.status === 'added') {
+      icon.className = 'bi bi-heart-fill';
+      this.classList.replace('btn-outline-warning','btn-warning');
+    } else {
+      icon.className = 'bi bi-heart';
+      this.classList.replace('btn-warning','btn-outline-warning');
+    }
+  });
+});
+function getCookie(name) {
+  let v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+  return v ? v[2] : null;
+}
+</script>
+{% endblock %}
