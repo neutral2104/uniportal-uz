@@ -7,7 +7,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-change-me-in-production-xyz123')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
+ALLOWED_HOSTS = [
+    'uniportal-uz.onrender.com',
+    '127.0.0.1',
+    'localhost',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
