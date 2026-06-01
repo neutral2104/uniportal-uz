@@ -1,5 +1,5 @@
 Django==4.2.16
-psycopg[binary]==3.2.1
+psycopg[binary]==3.3.4
 openai==1.35.0
 Pillow==11.2.1
 python-decouple==3.8
