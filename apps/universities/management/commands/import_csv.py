@@ -3,11 +3,12 @@ Management command: python manage.py import_csv
 Imports universities.csv into the database.
 """
 import csv, os
+from django.conf import settings
 from datetime import datetime
 from django.core.management.base import BaseCommand
 from apps.universities.models import University, Faculty
 
-CSV_PATH = os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', '..', 'universities.csv')
+CSV_PATH = os.path.join(settings.BASE_DIR, 'universities.csv')
 
 CITY_MAP = {
     'national university of uzbekistan': 'Tashkent',
