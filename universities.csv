@@ -1,0 +1,267 @@
+university,field,quota_2024,quota_2025,min_score,max_score,tuition_usd,deadline,requirements,application_link
+National University of Uzbekistan,Computer Science,120,140,180,247,1200,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Mathematics,80,90,170,240,1000,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Physics,60,70,165,238,1000,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Chemistry,55,65,162,235,1000,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Biology,60,70,160,233,1000,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,History,70,80,158,228,900,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Geography,50,60,155,225,900,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Journalism,65,75,162,232,1100,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Psychology,70,80,160,230,1100,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+National University of Uzbekistan,Law,90,100,172,242,1200,2025-07-15,Certificate + Passport + 2 Photos,https://nuu.uz/apply
+Tashkent University of Information Technologies,Computer Science,200,220,185,250,1500,2025-07-20,Certificate + Passport + IELTS (optional),https://tuit.uz/apply
+Tashkent University of Information Technologies,Software Engineering,150,180,180,248,1500,2025-07-20,Certificate + Passport + IELTS (optional),https://tuit.uz/apply
+Tashkent University of Information Technologies,Cybersecurity,80,100,175,245,1600,2025-07-20,Certificate + Passport,https://tuit.uz/apply
+Tashkent University of Information Technologies,Artificial Intelligence,60,80,182,252,1600,2025-07-20,Certificate + Passport,https://tuit.uz/apply
+Tashkent University of Information Technologies,Data Science,70,90,180,250,1600,2025-07-20,Certificate + Passport,https://tuit.uz/apply
+Tashkent University of Information Technologies,Telecommunications,100,110,172,240,1400,2025-07-20,Certificate + Passport,https://tuit.uz/apply
+Tashkent University of Information Technologies,Information Systems,120,140,170,238,1400,2025-07-20,Certificate + Passport,https://tuit.uz/apply
+Turin Polytechnic University in Tashkent,Engineering,100,120,190,256,3500,2025-06-30,Certificate + Passport + Interview,https://polito.uz/apply
+Turin Polytechnic University in Tashkent,Architecture,60,70,185,252,3500,2025-06-30,Certificate + Passport + Portfolio + Interview,https://polito.uz/apply
+Turin Polytechnic University in Tashkent,Industrial Design,40,50,182,248,3500,2025-06-30,Certificate + Passport + Portfolio,https://polito.uz/apply
+Turin Polytechnic University in Tashkent,Computer Engineering,80,90,188,254,3800,2025-06-30,Certificate + Passport + Interview,https://polito.uz/apply
+Westminster International University in Tashkent,Business Administration,90,100,175,244,4200,2025-06-15,Certificate + Passport + IELTS 5.5,https://wiut.uz/apply
+Westminster International University in Tashkent,Finance,70,80,178,246,4200,2025-06-15,Certificate + Passport + IELTS 5.5,https://wiut.uz/apply
+Westminster International University in Tashkent,Accounting,60,70,172,240,4200,2025-06-15,Certificate + Passport + IELTS 5.5,https://wiut.uz/apply
+Westminster International University in Tashkent,Marketing,65,75,170,238,4200,2025-06-15,Certificate + Passport + IELTS 5.5,https://wiut.uz/apply
+Westminster International University in Tashkent,Economics,75,85,174,242,4200,2025-06-15,Certificate + Passport + IELTS 5.5,https://wiut.uz/apply
+Tashkent Medical Academy,General Medicine,180,200,195,260,2000,2025-07-10,Certificate + Passport + Medical Certificate,https://tma.uz/apply
+Tashkent Medical Academy,Dentistry,60,70,192,258,2500,2025-07-10,Certificate + Passport + Medical Certificate,https://tma.uz/apply
+Tashkent Medical Academy,Pharmacy,80,90,188,255,1800,2025-07-10,Certificate + Passport + Medical Certificate,https://tma.uz/apply
+Tashkent Medical Academy,Nursing,100,120,180,245,1500,2025-07-10,Certificate + Passport + Medical Certificate,https://tma.uz/apply
+Tashkent Medical Academy,Public Health,60,70,182,248,1800,2025-07-10,Certificate + Passport + Medical Certificate,https://tma.uz/apply
+Samarkand State University,History,70,80,160,230,900,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Chemistry,65,75,162,232,950,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Biology,60,70,158,228,900,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Mathematics,75,85,165,235,950,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Physics,55,65,160,230,950,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Computer Science,90,110,170,240,1000,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Law,80,90,168,238,1000,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Samarkand State University,Economics,85,95,165,235,1000,2025-07-25,Certificate + Passport,https://samdu.uz/apply
+Inha University in Tashkent,Computer Science,80,100,188,254,3800,2025-06-20,Certificate + Passport + Interview,https://inha.uz/apply
+Inha University in Tashkent,Electrical Engineering,70,80,185,250,3800,2025-06-20,Certificate + Passport + Interview,https://inha.uz/apply
+Inha University in Tashkent,Mechanical Engineering,60,70,182,248,3800,2025-06-20,Certificate + Passport + Interview,https://inha.uz/apply
+Inha University in Tashkent,Business Administration,70,80,178,244,4000,2025-06-20,Certificate + Passport + Interview,https://inha.uz/apply
+Inha University in Tashkent,Chemical Engineering,50,60,180,246,3800,2025-06-20,Certificate + Passport + Interview,https://inha.uz/apply
+Tashkent State Technical University,Civil Engineering,150,160,168,238,1100,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Mechanical Engineering,120,130,165,235,1100,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Computer Science,140,160,172,242,1200,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Chemical Technology,80,90,160,230,1000,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Electrical Engineering,100,110,163,233,1100,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Automation and Control,90,100,165,235,1100,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State Technical University,Mining Engineering,70,80,158,228,1000,2025-07-18,Certificate + Passport,https://tdtu.uz/apply
+Tashkent State University of Economics,Economics,150,170,168,238,1100,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Finance,130,150,170,240,1100,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Accounting,120,140,165,235,1000,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Business Administration,110,130,168,238,1100,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Marketing,100,120,162,232,1000,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Management,95,110,160,230,1000,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Economics,Statistics,80,90,158,228,900,2025-07-15,Certificate + Passport,https://tdiu.uz/apply
+Tashkent State University of Law,Jurisprudence,120,140,175,245,1200,2025-07-12,Certificate + Passport,https://tsul.uz/apply
+Tashkent State University of Law,International Law,80,90,178,248,1300,2025-07-12,Certificate + Passport,https://tsul.uz/apply
+Tashkent State University of Law,Civil Law,90,100,172,242,1200,2025-07-12,Certificate + Passport,https://tsul.uz/apply
+Tashkent State University of Law,Criminal Law,70,80,170,240,1200,2025-07-12,Certificate + Passport,https://tsul.uz/apply
+University of World Economy and Diplomacy,International Relations,100,110,180,250,1500,2025-07-10,Certificate + Passport + Interview,https://uwed.uz/apply
+University of World Economy and Diplomacy,World Economy,90,100,178,248,1500,2025-07-10,Certificate + Passport + Interview,https://uwed.uz/apply
+University of World Economy and Diplomacy,Diplomacy,70,80,182,252,1600,2025-07-10,Certificate + Passport + Interview,https://uwed.uz/apply
+University of World Economy and Diplomacy,International Trade,75,85,175,245,1500,2025-07-10,Certificate + Passport + Interview,https://uwed.uz/apply
+Uzbekistan State University of World Languages,English Language,150,170,168,238,1100,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,German Language,80,90,162,232,1000,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,French Language,60,70,160,230,1000,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,Chinese Language,90,100,165,235,1100,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,Spanish Language,55,65,158,228,1000,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,Korean Language,70,80,162,232,1100,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,Arabic Language,60,70,160,230,1000,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Uzbekistan State University of World Languages,Japanese Language,55,65,158,228,1100,2025-07-15,Certificate + Passport,https://uzswlu.uz/apply
+Tashkent State Institute of Oriental Studies,Arabic Studies,60,70,165,235,1100,2025-07-15,Certificate + Passport,https://tsuos.uz/apply
+Tashkent State Institute of Oriental Studies,Chinese Studies,60,70,163,233,1100,2025-07-15,Certificate + Passport,https://tsuos.uz/apply
+Tashkent State Institute of Oriental Studies,Persian Studies,50,60,160,230,1000,2025-07-15,Certificate + Passport,https://tsuos.uz/apply
+Tashkent State Institute of Oriental Studies,Japanese Studies,50,60,162,232,1100,2025-07-15,Certificate + Passport,https://tsuos.uz/apply
+Tashkent State Institute of Oriental Studies,Korean Studies,55,65,162,232,1100,2025-07-15,Certificate + Passport,https://tsuos.uz/apply
+Tashkent State Agrarian University,Agronomy,100,110,155,225,900,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent State Agrarian University,Veterinary Medicine,90,100,158,228,1000,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent State Agrarian University,Agricultural Engineering,80,90,152,222,900,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent State Agrarian University,Food Technology,75,85,150,220,900,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent State Agrarian University,Horticulture,65,75,148,218,850,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent State Agrarian University,Ecology,60,70,148,218,850,2025-07-20,Certificate + Passport,https://tdau.uz/apply
+Tashkent Institute of Finance,Finance,130,150,170,240,1100,2025-07-15,Certificate + Passport,https://tfi.uz/apply
+Tashkent Institute of Finance,Banking,110,130,168,238,1100,2025-07-15,Certificate + Passport,https://tfi.uz/apply
+Tashkent Institute of Finance,Accounting,100,120,165,235,1000,2025-07-15,Certificate + Passport,https://tfi.uz/apply
+Tashkent Institute of Finance,Insurance,80,90,162,232,1000,2025-07-15,Certificate + Passport,https://tfi.uz/apply
+Tashkent Institute of Finance,Taxation,90,100,163,233,1000,2025-07-15,Certificate + Passport,https://tfi.uz/apply
+Tashkent Institute of Irrigation and Melioration,Water Management,90,100,158,228,1000,2025-07-18,Certificate + Passport,https://timi.uz/apply
+Tashkent Institute of Irrigation and Melioration,Hydraulic Engineering,80,90,155,225,1000,2025-07-18,Certificate + Passport,https://timi.uz/apply
+Tashkent Institute of Irrigation and Melioration,Environmental Engineering,70,80,152,222,950,2025-07-18,Certificate + Passport,https://timi.uz/apply
+Tashkent Institute of Irrigation and Melioration,Land Management,75,85,150,220,900,2025-07-18,Certificate + Passport,https://timi.uz/apply
+Tashkent Institute of Architecture and Civil Engineering,Architecture,80,90,175,245,1200,2025-07-15,Certificate + Passport + Portfolio,https://taqi.uz/apply
+Tashkent Institute of Architecture and Civil Engineering,Civil Engineering,120,140,165,235,1100,2025-07-15,Certificate + Passport,https://taqi.uz/apply
+Tashkent Institute of Architecture and Civil Engineering,Urban Planning,60,70,162,232,1100,2025-07-15,Certificate + Passport,https://taqi.uz/apply
+Tashkent Institute of Architecture and Civil Engineering,Interior Design,55,65,168,238,1200,2025-07-15,Certificate + Passport + Portfolio,https://taqi.uz/apply
+Tashkent Automobile and Road Construction Institute,Automobile Engineering,100,110,158,228,1000,2025-07-18,Certificate + Passport,https://tayi.uz/apply
+Tashkent Automobile and Road Construction Institute,Road Construction,90,100,155,225,1000,2025-07-18,Certificate + Passport,https://tayi.uz/apply
+Tashkent Automobile and Road Construction Institute,Transport Logistics,80,90,155,225,1000,2025-07-18,Certificate + Passport,https://tayi.uz/apply
+Tashkent Automobile and Road Construction Institute,Traffic Engineering,70,80,152,222,950,2025-07-18,Certificate + Passport,https://tayi.uz/apply
+Tashkent Pharmaceutical Institute,Pharmacy,100,120,185,252,1600,2025-07-12,Certificate + Passport + Medical Certificate,https://pharmi.uz/apply
+Tashkent Pharmaceutical Institute,Industrial Pharmacy,70,80,182,248,1600,2025-07-12,Certificate + Passport + Medical Certificate,https://pharmi.uz/apply
+Tashkent Pharmaceutical Institute,Pharmacology,60,70,180,246,1600,2025-07-12,Certificate + Passport + Medical Certificate,https://pharmi.uz/apply
+Tashkent State Dental Institute,Dentistry,80,90,190,256,2500,2025-07-10,Certificate + Passport + Medical Certificate,https://tsdi.uz/apply
+Tashkent State Dental Institute,Dental Technology,50,60,182,248,2000,2025-07-10,Certificate + Passport + Medical Certificate,https://tsdi.uz/apply
+Tashkent Pediatric Medical Institute,Pediatrics,120,140,188,254,2000,2025-07-10,Certificate + Passport + Medical Certificate,https://tashpmi.uz/apply
+Tashkent Pediatric Medical Institute,General Medicine,100,120,190,256,2000,2025-07-10,Certificate + Passport + Medical Certificate,https://tashpmi.uz/apply
+Tashkent Pediatric Medical Institute,Nursing,80,90,178,244,1500,2025-07-10,Certificate + Passport + Medical Certificate,https://tashpmi.uz/apply
+Moscow State University in Tashkent,Mathematics,60,70,182,250,3200,2025-06-25,Certificate + Passport + Entrance Exam,https://msu.tashkent.uz/apply
+Moscow State University in Tashkent,Computer Science,70,80,185,252,3200,2025-06-25,Certificate + Passport + Entrance Exam,https://msu.tashkent.uz/apply
+Moscow State University in Tashkent,Economics,65,75,178,246,3200,2025-06-25,Certificate + Passport + Entrance Exam,https://msu.tashkent.uz/apply
+Moscow State University in Tashkent,Physics,50,60,180,248,3200,2025-06-25,Certificate + Passport + Entrance Exam,https://msu.tashkent.uz/apply
+Moscow State University in Tashkent,Chemistry,50,60,178,246,3200,2025-06-25,Certificate + Passport + Entrance Exam,https://msu.tashkent.uz/apply
+Management Development Institute of Singapore in Tashkent,Business Administration,80,90,175,245,5000,2025-06-10,Certificate + Passport + IELTS 6.0 + Interview,https://mdis.uz/apply
+Management Development Institute of Singapore in Tashkent,Information Technology,70,80,178,248,5000,2025-06-10,Certificate + Passport + IELTS 6.0 + Interview,https://mdis.uz/apply
+Management Development Institute of Singapore in Tashkent,Hospitality Management,60,70,170,240,5000,2025-06-10,Certificate + Passport + IELTS 6.0 + Interview,https://mdis.uz/apply
+Management Development Institute of Singapore in Tashkent,Marketing,65,75,172,242,5000,2025-06-10,Certificate + Passport + IELTS 6.0 + Interview,https://mdis.uz/apply
+New Uzbekistan University,Business Analytics,80,100,175,245,2500,2025-07-01,Certificate + Passport + Interview,https://newuu.uz/apply
+New Uzbekistan University,Computer Science,90,110,180,250,2500,2025-07-01,Certificate + Passport + Interview,https://newuu.uz/apply
+New Uzbekistan University,Public Administration,70,80,170,240,2500,2025-07-01,Certificate + Passport + Interview,https://newuu.uz/apply
+New Uzbekistan University,Law,75,85,172,242,2500,2025-07-01,Certificate + Passport + Interview,https://newuu.uz/apply
+New Uzbekistan University,Economics,80,90,168,238,2500,2025-07-01,Certificate + Passport + Interview,https://newuu.uz/apply
+Ajou University in Tashkent,Business Administration,60,70,178,248,4500,2025-06-15,Certificate + Passport + IELTS 5.5 + Interview,https://ajou.uz/apply
+Ajou University in Tashkent,Computer Science,60,70,182,252,4500,2025-06-15,Certificate + Passport + IELTS 5.5 + Interview,https://ajou.uz/apply
+Ajou University in Tashkent,Engineering,50,60,180,250,4500,2025-06-15,Certificate + Passport + IELTS 5.5 + Interview,https://ajou.uz/apply
+Kimyo International University in Tashkent,Computer Science,80,100,178,248,3000,2025-07-01,Certificate + Passport + Entrance Exam,https://kiut.uz/apply
+Kimyo International University in Tashkent,Information Systems,70,80,172,242,3000,2025-07-01,Certificate + Passport + Entrance Exam,https://kiut.uz/apply
+Kimyo International University in Tashkent,Engineering,65,75,170,240,3000,2025-07-01,Certificate + Passport + Entrance Exam,https://kiut.uz/apply
+Kimyo International University in Tashkent,Economics,60,70,168,238,3000,2025-07-01,Certificate + Passport + Entrance Exam,https://kiut.uz/apply
+Webster University in Tashkent,Business Administration,50,60,172,242,6000,2025-06-01,Certificate + Passport + IELTS 6.0,https://webster.uz/apply
+Webster University in Tashkent,Media Communications,45,55,168,238,6000,2025-06-01,Certificate + Passport + IELTS 6.0,https://webster.uz/apply
+Webster University in Tashkent,International Relations,45,55,170,240,6000,2025-06-01,Certificate + Passport + IELTS 6.0,https://webster.uz/apply
+Nordic International University,Business Administration,70,80,165,235,2800,2025-07-05,Certificate + Passport,https://nordicuniversity.org/apply
+Nordic International University,Computer Science,65,75,168,238,2800,2025-07-05,Certificate + Passport,https://nordicuniversity.org/apply
+Nordic International University,Psychology,60,70,162,232,2800,2025-07-05,Certificate + Passport,https://nordicuniversity.org/apply
+Nordic International University,Economics,65,75,160,230,2800,2025-07-05,Certificate + Passport,https://nordicuniversity.org/apply
+Central Asian University,Business Administration,80,90,170,240,3500,2025-07-01,Certificate + Passport + Interview,https://centralasian.uz/apply
+Central Asian University,Computer Science,75,85,172,242,3500,2025-07-01,Certificate + Passport + Interview,https://centralasian.uz/apply
+Central Asian University,Engineering,65,75,168,238,3500,2025-07-01,Certificate + Passport + Interview,https://centralasian.uz/apply
+TEAM University,Business Administration,70,80,165,235,3000,2025-07-05,Certificate + Passport,https://teamuniversity.uz/apply
+TEAM University,Computer Science,65,75,168,238,3000,2025-07-05,Certificate + Passport,https://teamuniversity.uz/apply
+TEAM University,Tourism Management,60,70,160,230,3000,2025-07-05,Certificate + Passport,https://teamuniversity.uz/apply
+TEAM University,Design,55,65,162,232,3000,2025-07-05,Certificate + Passport + Portfolio,https://teamuniversity.uz/apply
+Samarkand State Medical Institute,General Medicine,150,170,190,256,1800,2025-07-12,Certificate + Passport + Medical Certificate,https://sammi.uz/apply
+Samarkand State Medical Institute,Dentistry,60,70,188,254,2200,2025-07-12,Certificate + Passport + Medical Certificate,https://sammi.uz/apply
+Samarkand State Medical Institute,Pharmacy,70,80,182,248,1600,2025-07-12,Certificate + Passport + Medical Certificate,https://sammi.uz/apply
+Samarkand State Medical Institute,Nursing,80,90,175,242,1300,2025-07-12,Certificate + Passport + Medical Certificate,https://sammi.uz/apply
+Samarkand State Institute of Foreign Languages,English Language,100,120,162,232,1000,2025-07-20,Certificate + Passport,https://samdchti.uz/apply
+Samarkand State Institute of Foreign Languages,German Language,60,70,158,228,950,2025-07-20,Certificate + Passport,https://samdchti.uz/apply
+Samarkand State Institute of Foreign Languages,French Language,50,60,155,225,950,2025-07-20,Certificate + Passport,https://samdchti.uz/apply
+Samarkand State Institute of Foreign Languages,Chinese Language,60,70,158,228,1000,2025-07-20,Certificate + Passport,https://samdchti.uz/apply
+Samarkand State Institute of Architecture and Construction,Architecture,70,80,168,238,1100,2025-07-20,Certificate + Passport + Portfolio,https://samgasi.uz/apply
+Samarkand State Institute of Architecture and Construction,Civil Engineering,90,100,160,230,1000,2025-07-20,Certificate + Passport,https://samgasi.uz/apply
+Samarkand State Institute of Architecture and Construction,Urban Planning,55,65,158,228,1000,2025-07-20,Certificate + Passport,https://samgasi.uz/apply
+Samarkand Institute of Economics and Service,Economics,90,100,158,228,950,2025-07-20,Certificate + Passport,https://samies.uz/apply
+Samarkand Institute of Economics and Service,Tourism,80,90,155,225,950,2025-07-20,Certificate + Passport,https://samies.uz/apply
+Samarkand Institute of Economics and Service,Service Management,75,85,152,222,900,2025-07-20,Certificate + Passport,https://samies.uz/apply
+Samarkand International University of Technology,Computer Science,60,80,172,242,2200,2025-07-15,Certificate + Passport + Interview,https://siut.uz/apply
+Samarkand International University of Technology,Engineering,55,70,168,238,2200,2025-07-15,Certificate + Passport + Interview,https://siut.uz/apply
+Silk Road International University of Tourism,Tourism Management,100,120,155,225,1500,2025-07-15,Certificate + Passport,https://univ-silkroad.uz/apply
+Silk Road International University of Tourism,Hospitality Management,80,100,152,222,1500,2025-07-15,Certificate + Passport,https://univ-silkroad.uz/apply
+Silk Road International University of Tourism,Cultural Heritage,60,70,150,220,1400,2025-07-15,Certificate + Passport,https://univ-silkroad.uz/apply
+Silk Road International University of Tourism,Business Administration,70,80,155,225,1500,2025-07-15,Certificate + Passport,https://univ-silkroad.uz/apply
+Andijan State Medical Institute,General Medicine,120,140,185,252,1600,2025-07-12,Certificate + Passport + Medical Certificate,https://agmi.uz/apply
+Andijan State Medical Institute,Dentistry,50,60,182,248,2000,2025-07-12,Certificate + Passport + Medical Certificate,https://agmi.uz/apply
+Andijan State Medical Institute,Pharmacy,60,70,178,244,1500,2025-07-12,Certificate + Passport + Medical Certificate,https://agmi.uz/apply
+Andijan State University,Mathematics,65,75,160,230,950,2025-07-20,Certificate + Passport,https://anddu.uz/apply
+Andijan State University,Physics,55,65,158,228,950,2025-07-20,Certificate + Passport,https://anddu.uz/apply
+Andijan State University,Computer Science,80,95,165,235,1000,2025-07-20,Certificate + Passport,https://anddu.uz/apply
+Andijan State University,History,60,70,155,225,900,2025-07-20,Certificate + Passport,https://anddu.uz/apply
+Andijan State University,Economics,70,80,158,228,950,2025-07-20,Certificate + Passport,https://anddu.uz/apply
+Fergana State University,Mathematics,70,80,160,230,950,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana State University,Physics,55,65,158,228,950,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana State University,Chemistry,55,65,155,225,950,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana State University,Computer Science,80,95,165,235,1000,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana State University,Economics,75,85,158,228,950,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana State University,History,60,70,152,222,900,2025-07-20,Certificate + Passport,https://fdu.uz/apply
+Fergana Polytechnic Institute,Mechanical Engineering,80,90,158,228,1000,2025-07-20,Certificate + Passport,https://ferpi.uz/apply
+Fergana Polytechnic Institute,Chemical Technology,70,80,155,225,1000,2025-07-20,Certificate + Passport,https://ferpi.uz/apply
+Fergana Polytechnic Institute,Civil Engineering,80,90,155,225,1000,2025-07-20,Certificate + Passport,https://ferpi.uz/apply
+Fergana Polytechnic Institute,Computer Science,90,100,162,232,1100,2025-07-20,Certificate + Passport,https://ferpi.uz/apply
+Namangan State University,Mathematics,65,75,158,228,950,2025-07-20,Certificate + Passport,https://namspi.uz/apply
+Namangan State University,Computer Science,75,90,162,232,1000,2025-07-20,Certificate + Passport,https://namspi.uz/apply
+Namangan State University,Economics,70,80,155,225,950,2025-07-20,Certificate + Passport,https://namspi.uz/apply
+Namangan State University,History,55,65,150,220,900,2025-07-20,Certificate + Passport,https://namspi.uz/apply
+Namangan Engineering Technological Institute,Mechanical Engineering,75,85,155,225,1000,2025-07-20,Certificate + Passport,https://namtemi.uz/apply
+Namangan Engineering Technological Institute,Chemical Technology,65,75,152,222,1000,2025-07-20,Certificate + Passport,https://namtemi.uz/apply
+Namangan Engineering Technological Institute,Computer Science,80,90,160,230,1000,2025-07-20,Certificate + Passport,https://namtemi.uz/apply
+Bukhara State University,Mathematics,65,75,158,228,950,2025-07-20,Certificate + Passport,https://buxdu.uz/apply
+Bukhara State University,Computer Science,75,90,162,232,1000,2025-07-20,Certificate + Passport,https://buxdu.uz/apply
+Bukhara State University,Economics,70,80,155,225,950,2025-07-20,Certificate + Passport,https://buxdu.uz/apply
+Bukhara State University,History,60,70,150,220,900,2025-07-20,Certificate + Passport,https://buxdu.uz/apply
+Bukhara State University,Chemistry,55,65,152,222,950,2025-07-20,Certificate + Passport,https://buxdu.uz/apply
+Bukhara State Medical Institute,General Medicine,110,130,182,248,1700,2025-07-12,Certificate + Passport + Medical Certificate,https://bsmi.uz/apply
+Bukhara State Medical Institute,Dentistry,50,60,180,246,2100,2025-07-12,Certificate + Passport + Medical Certificate,https://bsmi.uz/apply
+Bukhara State Medical Institute,Pharmacy,60,70,175,242,1500,2025-07-12,Certificate + Passport + Medical Certificate,https://bsmi.uz/apply
+Bukhara Engineering Technological Institute,Chemical Technology,70,80,152,222,1000,2025-07-20,Certificate + Passport,https://bti.uz/apply
+Bukhara Engineering Technological Institute,Mechanical Engineering,75,85,150,220,1000,2025-07-20,Certificate + Passport,https://bti.uz/apply
+Bukhara Engineering Technological Institute,Food Technology,65,75,148,218,950,2025-07-20,Certificate + Passport,https://bti.uz/apply
+Navoi State University,Economics,70,80,155,225,950,2025-07-20,Certificate + Passport,https://navdpi.uz/apply
+Navoi State University,Computer Science,65,75,158,228,1000,2025-07-20,Certificate + Passport,https://navdpi.uz/apply
+Navoi State University,Business Administration,60,70,152,222,950,2025-07-20,Certificate + Passport,https://navdpi.uz/apply
+Navoi State Mining Institute,Mining Engineering,100,110,155,225,1100,2025-07-18,Certificate + Passport,https://nmi.uz/apply
+Navoi State Mining Institute,Geology,80,90,152,222,1000,2025-07-18,Certificate + Passport,https://nmi.uz/apply
+Navoi State Mining Institute,Metallurgy,75,85,150,220,1000,2025-07-18,Certificate + Passport,https://nmi.uz/apply
+Navoi State Mining Institute,Chemical Technology,70,80,148,218,1000,2025-07-18,Certificate + Passport,https://nmi.uz/apply
+Karshi State University,Mathematics,60,70,155,225,950,2025-07-20,Certificate + Passport,https://karshidu.uz/apply
+Karshi State University,Computer Science,70,85,158,228,1000,2025-07-20,Certificate + Passport,https://karshidu.uz/apply
+Karshi State University,Economics,65,75,152,222,950,2025-07-20,Certificate + Passport,https://karshidu.uz/apply
+Karshi State University,History,55,65,148,218,900,2025-07-20,Certificate + Passport,https://karshidu.uz/apply
+Karshi Engineering Economics Institute,Mechanical Engineering,75,85,150,220,1000,2025-07-20,Certificate + Passport,https://kiei.uz/apply
+Karshi Engineering Economics Institute,Economics,70,80,148,218,950,2025-07-20,Certificate + Passport,https://kiei.uz/apply
+Karshi Engineering Economics Institute,Computer Science,75,85,155,225,1000,2025-07-20,Certificate + Passport,https://kiei.uz/apply
+Termez State University,Mathematics,55,65,150,220,900,2025-07-20,Certificate + Passport,https://termdu.uz/apply
+Termez State University,Computer Science,65,75,155,225,950,2025-07-20,Certificate + Passport,https://termdu.uz/apply
+Termez State University,Economics,60,70,148,218,900,2025-07-20,Certificate + Passport,https://termdu.uz/apply
+Termez State University,History,50,60,145,215,850,2025-07-20,Certificate + Passport,https://termdu.uz/apply
+Urgench State University,Mathematics,60,70,152,222,900,2025-07-20,Certificate + Passport,https://urdu.uz/apply
+Urgench State University,Computer Science,65,75,155,225,950,2025-07-20,Certificate + Passport,https://urdu.uz/apply
+Urgench State University,Economics,60,70,150,220,900,2025-07-20,Certificate + Passport,https://urdu.uz/apply
+Urgench State University,History,50,60,145,215,850,2025-07-20,Certificate + Passport,https://urdu.uz/apply
+Khorezm Mamun Academy,Natural Sciences,40,50,148,218,1200,2025-07-20,Certificate + Passport + Interview,https://mamun-academy.uz/apply
+Khorezm Mamun Academy,Humanities,40,50,145,215,1200,2025-07-20,Certificate + Passport + Interview,https://mamun-academy.uz/apply
+Nukus State Pedagogical Institute,Mathematics Education,60,70,148,218,850,2025-07-20,Certificate + Passport,https://nspi.uz/apply
+Nukus State Pedagogical Institute,Physics Education,50,60,145,215,850,2025-07-20,Certificate + Passport,https://nspi.uz/apply
+Nukus State Pedagogical Institute,History Education,50,60,142,212,800,2025-07-20,Certificate + Passport,https://nspi.uz/apply
+Karakalpak State University,Mathematics,55,65,148,218,850,2025-07-20,Certificate + Passport,https://karsu.uz/apply
+Karakalpak State University,Computer Science,60,70,152,222,900,2025-07-20,Certificate + Passport,https://karsu.uz/apply
+Karakalpak State University,Economics,55,65,148,218,850,2025-07-20,Certificate + Passport,https://karsu.uz/apply
+Karakalpak State University,History,50,60,142,212,800,2025-07-20,Certificate + Passport,https://karsu.uz/apply
+Karakalpak State University,Biology,50,60,142,212,800,2025-07-20,Certificate + Passport,https://karsu.uz/apply
+Jizzakh State Pedagogical University,Mathematics Education,65,75,152,222,900,2025-07-20,Certificate + Passport,https://jdpu.uz/apply
+Jizzakh State Pedagogical University,Physics Education,55,65,148,218,850,2025-07-20,Certificate + Passport,https://jdpu.uz/apply
+Jizzakh State Pedagogical University,Biology Education,55,65,145,215,850,2025-07-20,Certificate + Passport,https://jdpu.uz/apply
+Jizzakh State Pedagogical University,History Education,55,65,142,212,800,2025-07-20,Certificate + Passport,https://jdpu.uz/apply
+Jizzakh Polytechnic Institute,Civil Engineering,75,85,150,220,1000,2025-07-20,Certificate + Passport,https://jpi.uz/apply
+Jizzakh Polytechnic Institute,Mechanical Engineering,70,80,148,218,1000,2025-07-20,Certificate + Passport,https://jpi.uz/apply
+Jizzakh Polytechnic Institute,Computer Science,75,85,155,225,1000,2025-07-20,Certificate + Passport,https://jpi.uz/apply
+Gulistan State University,Mathematics,60,70,150,220,900,2025-07-20,Certificate + Passport,https://guldu.uz/apply
+Gulistan State University,Computer Science,65,75,152,222,950,2025-07-20,Certificate + Passport,https://guldu.uz/apply
+Gulistan State University,Economics,60,70,148,218,900,2025-07-20,Certificate + Passport,https://guldu.uz/apply
+Gulistan State University,History,50,60,142,212,800,2025-07-20,Certificate + Passport,https://guldu.uz/apply
+International Agriculture University,Agronomy,80,90,150,220,1500,2025-07-15,Certificate + Passport + Interview,https://iau.uz/apply
+International Agriculture University,Veterinary Medicine,75,85,152,222,1600,2025-07-15,Certificate + Passport + Interview,https://iau.uz/apply
+International Agriculture University,Agricultural Business,70,80,148,218,1500,2025-07-15,Certificate + Passport + Interview,https://iau.uz/apply
+International Agriculture University,Food Safety,65,75,148,218,1500,2025-07-15,Certificate + Passport + Interview,https://iau.uz/apply
+Zarmed University,Medicine,80,90,185,252,3000,2025-06-20,Certificate + Passport + Medical Certificate + Interview,https://zarmed.uz/apply
+Zarmed University,Dentistry,40,50,182,248,3500,2025-06-20,Certificate + Passport + Medical Certificate + Interview,https://zarmed.uz/apply
+Zarmed University,Pharmacy,50,60,178,244,2800,2025-06-20,Certificate + Passport + Medical Certificate + Interview,https://zarmed.uz/apply
+Amity University in Tashkent,Business Administration,60,70,168,238,4800,2025-06-15,Certificate + Passport + IELTS 5.5,https://amity.uz/apply
+Amity University in Tashkent,Computer Science,55,65,170,240,4800,2025-06-15,Certificate + Passport + IELTS 5.5,https://amity.uz/apply
+Amity University in Tashkent,Engineering,50,60,168,238,4800,2025-06-15,Certificate + Passport + IELTS 5.5,https://amity.uz/apply
+Tashkent State Pedagogical University,Mathematics Education,100,110,158,228,950,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent State Pedagogical University,Physics Education,80,90,155,225,950,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent State Pedagogical University,History Education,80,90,150,220,900,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent State Pedagogical University,Biology Education,75,85,148,218,900,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent State Pedagogical University,Chemistry Education,70,80,148,218,900,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent State Pedagogical University,English Language Education,120,140,162,232,1000,2025-07-15,Certificate + Passport,https://tdpu.uz/apply
+Tashkent Metropolitan University,Business Administration,80,90,168,238,3200,2025-07-01,Certificate + Passport + Interview,https://tmu.uz/apply
+Tashkent Metropolitan University,Computer Science,75,85,170,240,3200,2025-07-01,Certificate + Passport + Interview,https://tmu.uz/apply
+Tashkent Metropolitan University,Design,60,70,165,235,3200,2025-07-01,Certificate + Passport + Portfolio + Interview,https://tmu.uz/apply
+University of Digital Economics and Agrotechnologies,Digital Economics,70,85,165,235,2200,2025-07-05,Certificate + Passport,https://udea.uz/apply
+University of Digital Economics and Agrotechnologies,Agrotechnology,60,75,158,228,2000,2025-07-05,Certificate + Passport,https://udea.uz/apply
+University of Digital Economics and Agrotechnologies,Computer Science,75,90,168,238,2200,2025-07-05,Certificate + Passport,https://udea.uz/apply
