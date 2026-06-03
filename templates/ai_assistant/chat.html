@@ -68,6 +68,9 @@ UniPortal UZ{% endblock %} {% block extra_css %}
 </style>
 {% endblock %} {% block content %}
 <div
+  {%
+  csrf_token
+  %}
   class="container-fluid px-0"
   style="background: #f0f2f5; min-height: calc(100vh - 56px)"
 >

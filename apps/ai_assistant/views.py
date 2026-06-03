@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
 from django.conf import settings
+from django.views.decorators.csrf import ensure_csrf_cookie
 from .models import AIChatHistory
 from apps.universities.models import University, Faculty
 
@@ -34,6 +35,7 @@ def get_or_create_session(request):
         request.session['chat_session'] = str(uuid.uuid4())
     return request.session['chat_session']
 
+@ensure_csrf_cookie
 def chat_view(request):
     session = get_or_create_session(request)
     history = AIChatHistory.objects.filter(session=session).order_by('created_at')[:50]

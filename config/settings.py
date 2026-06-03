@@ -12,6 +12,9 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
 ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://uniportal-uz.onrender.com",
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
