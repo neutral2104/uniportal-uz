@@ -132,29 +132,29 @@
                 </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'profile' %}"
-                    ><i class="bi bi-person-circle me-2 text-primary"></i>{{
-                    t.nav_profile }}</a
+                    ><i class="bi bi-person-circle me-2 text-primary"></i>
+                    {{t.nav_profile }}</a
                   >
                 </li>
                 {% if user.is_staff or user.profile.role == 'admin' %}
                 <li>
                   <a class="dropdown-item" href="{% url 'uni_create' %}"
-                    ><i class="bi bi-plus-circle me-2 text-success"></i>{{
-                    t.nav_add_uni }}</a
+                    ><i class="bi bi-plus-circle me-2 text-success"></i>
+                    {{t.nav_add_uni }}</a
                   >
                 </li>
                 <li>
                   <a class="dropdown-item" href="{% url 'dashboard' %}"
-                    ><i class="bi bi-speedometer2 me-2 text-info"></i>{{
-                    t.nav_dashboard }}</a
+                    ><i class="bi bi-speedometer2 me-2 text-info"></i>
+                    {{t.nav_dashboard }}</a
                   >
                 </li>
                 {% endif %}
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item text-danger" href="{% url 'logout' %}"
-                    ><i class="bi bi-box-arrow-right me-2"></i>{{ t.nav_logout
-                    }}</a
+                    ><i class="bi bi-box-arrow-right me-2"></i>
+                    {{t.nav_logout}}</a
                   >
                 </li>
               </ul>
@@ -162,15 +162,16 @@
             {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'login' %}"
-                ><i class="bi bi-box-arrow-in-right me-1"></i>{{ t.nav_login
-                }}</a
-              >
+                ><i class="bi bi-box-arrow-in-right me-1"></i>
+                {{ t.nav_login}}
+              </a>
             </li>
             <li class="nav-item">
               <a
                 class="btn btn-warning btn-sm px-3 fw-semibold"
                 href="{% url 'register' %}"
-                >{{ t.nav_signup }}</a
+              >
+                {{ t.nav_signup }}</a
               >
             </li>
             {% endif %}
