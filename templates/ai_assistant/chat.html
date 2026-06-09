@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% block title %}AI Assistant —
+{% extends 'base.html' %} {% load static %} {% block title %}{{ t.ai_title }} —
 UniPortal UZ{% endblock %} {% block extra_css %}
 <style>
   .chat-container {
@@ -30,13 +30,6 @@ UniPortal UZ{% endblock %} {% block extra_css %}
     border-radius: 18px 18px 18px 4px;
     border: 1px solid #e9ecef;
   }
-  .bubble.bot pre {
-    background: #e9ecef;
-    border-radius: 8px;
-    padding: 8px 12px;
-    font-size: 0.85rem;
-    overflow-x: auto;
-  }
   .typing-dots span {
     display: inline-block;
     width: 8px;
@@ -62,20 +55,13 @@ UniPortal UZ{% endblock %} {% block extra_css %}
       transform: translateY(-8px);
     }
   }
-  .suggestion-btn {
-    font-size: 0.8rem;
-  }
 </style>
 {% endblock %} {% block content %}
 <div
-  {%
-  csrf_token
-  %}
   class="container-fluid px-0"
   style="background: #f0f2f5; min-height: calc(100vh - 56px)"
 >
   <div class="row g-0 h-100">
-    <!-- Sidebar -->
     <div
       class="col-lg-3 col-xl-2 bg-white border-end d-none d-lg-flex flex-column p-3"
       style="min-height: calc(100vh - 56px)"
@@ -89,52 +75,71 @@ UniPortal UZ{% endblock %} {% block extra_css %}
         </div>
         <div>
           <div class="fw-bold small">UniBot AI</div>
-          <div class="text-success" style="font-size: 0.7rem">● Online</div>
+          <div class="text-success" style="font-size: 0.7rem">
+            {{ t.ai_online }}
+          </div>
         </div>
       </div>
-      <h6 class="text-muted small fw-semibold mb-2">SUGGESTED QUESTIONS</h6>
+      <h6 class="text-muted small fw-semibold mb-2">{{ t.suggested }}</h6>
       <div class="d-flex flex-column gap-2" id="suggestions">
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          💡 What universities offer Computer Science?
+          💡 {% if current_lang == 'uz' %}Kompyuter fanlari bo'yicha qaysi
+          universitetlar bor?{% elif current_lang == 'ru' %}Какие университеты
+          предлагают информатику?{% else %}What universities offer Computer
+          Science?{% endif %}
         </button>
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          🎯 I scored 185 on DTM — what are my options?
+          🎯 {% if current_lang == 'uz' %}DTM ballim 185 — imkoniyatlarim
+          qanday?{% elif current_lang == 'ru' %}У меня 185 баллов ДТМ — каковы
+          мои варианты?{% else %}I scored 185 on DTM — what are my options?
+          {%endif %}
         </button>
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          ⚖️ Compare WIUT vs TUIT programs
+          ⚖️ {% if current_lang == 'uz' %}WIUT va TUIT dasturlarini taqqoslash
+          {%elif current_lang == 'ru' %}Сравните программы WIUT и TUIT
+          {%else%}Compare WIUT vs TUIT programs {% endif %}
         </button>
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          🎓 What scholarships are available in Uzbekistan?
+          🎓 {% if current_lang == 'uz' %}O'zbekistonda qanday stipendiyalar
+          mavjud?{% elif current_lang == 'ru' %}Какие стипендии доступны в
+          Узбекистане?{% else %}What scholarships are available in Uzbekistan?
+          {%endif %}
         </button>
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          🏥 Best universities for studying medicine?
+          🏥 {% if current_lang == 'uz' %}Tibbiyot o'qish uchun eng yaxshi
+          universitetlar?{% elif current_lang == 'ru' %}Лучшие университеты для
+          изучения медицины?{% else %}Best universities for studying medicine?
+          {% endif %}
         </button>
         <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
+          class="btn btn-outline-primary btn-sm text-start rounded-pill"
+          style="font-size: 0.8rem"
           onclick="sendSuggestion(this)"
         >
-          💰 Cheapest international universities in Tashkent?
-        </button>
-        <button
-          class="btn btn-outline-primary btn-sm text-start suggestion-btn rounded-pill"
-          onclick="sendSuggestion(this)"
-        >
-          📋 What documents do I need to apply?
+          💰 {% if current_lang == 'uz' %}Toshdentdagi eng arzon xalqaro
+          universitetlar?{% elif current_lang == 'ru' %}Самые доступные
+          международные вузы в Ташкенте?{% else %}Cheapest international
+          universities in Tashkent?{% endif %}
         </button>
       </div>
       <div class="mt-auto pt-3 border-top">
@@ -142,12 +147,11 @@ UniPortal UZ{% endblock %} {% block extra_css %}
           class="btn btn-outline-danger btn-sm w-100 rounded-pill"
           onclick="clearChat()"
         >
-          <i class="bi bi-trash me-1"></i>Clear Chat
+          <i class="bi bi-trash me-1"></i>{{ t.clear_chat }}
         </button>
       </div>
     </div>
 
-    <!-- Chat Area -->
     <div
       class="col-lg-9 col-xl-10 d-flex flex-column"
       style="min-height: calc(100vh - 56px)"
@@ -160,29 +164,23 @@ UniPortal UZ{% endblock %} {% block extra_css %}
           🤖
         </div>
         <div>
-          <div class="fw-bold">UniBot AI Assistant</div>
-          <div class="text-muted small">
-            Ask anything about university admissions in Uzbekistan
-          </div>
+          <div class="fw-bold">{{ t.ai_title }}</div>
+          <div class="text-muted small">{{ t.ai_subtitle }}</div>
         </div>
       </div>
 
       <div class="chat-messages flex-grow-1" id="chatMessages">
-        <!-- History -->
         {% if not history %}
+
         <div class="text-center py-5" id="welcomeMsg">
           <div class="display-1 mb-3">🎓</div>
-          <h4 class="fw-bold">Hello! I'm UniBot</h4>
-          <p class="text-muted mb-4">
-            I can help you with university admissions, program comparisons,<br />scholarships,
-            and career guidance in Uzbekistan.
-          </p>
-          <p class="text-muted small">
-            Try one of the suggestions on the left, or type your own question
-            below.
-          </p>
+          <h4 class="fw-bold">{{ t.welcome_ai_title }}</h4>
+          <p class="text-muted mb-4">{{ t.welcome_ai_body }}</p>
+          <p class="text-muted small">{{ t.welcome_ai_hint }}</p>
         </div>
+
         {% else %} {% for msg in history %}
+
         <div
           class="d-flex {% if msg.role == 'user' %}justify-content-end{% endif %} mb-3"
         >
@@ -194,14 +192,15 @@ UniPortal UZ{% endblock %} {% block extra_css %}
             🤖
           </div>
           {% endif %}
+
           <div class="bubble {{ msg.role }} p-3 shadow-sm">
             {{ msg.content|linebreaksbr }}
           </div>
         </div>
+
         {% endfor %} {% endif %}
       </div>
 
-      <!-- Typing indicator -->
       <div class="px-4 pb-1" id="typingIndicator" style="display: none">
         <div class="d-flex align-items-center gap-2">
           <div
@@ -216,14 +215,13 @@ UniPortal UZ{% endblock %} {% block extra_css %}
         </div>
       </div>
 
-      <!-- Input -->
       <div class="bg-white border-top p-3">
         <div class="d-flex gap-2">
           <textarea
             id="msgInput"
             class="form-control rounded-pill px-4"
             rows="1"
-            placeholder="Ask about universities, programs, scholarships…"
+            placeholder="{{ t.chat_placeholder }}"
             style="resize: none; overflow: hidden; max-height: 120px"
           ></textarea>
           <button
@@ -236,8 +234,7 @@ UniPortal UZ{% endblock %} {% block extra_css %}
           </button>
         </div>
         <p class="text-muted text-center mt-2 mb-0" style="font-size: 0.7rem">
-          AI responses are for guidance only. Always verify with official
-          university sources.
+          {{ t.ai_disclaimer }}
         </p>
       </div>
     </div>
@@ -248,7 +245,7 @@ UniPortal UZ{% endblock %} {% block extra_css %}
   const input = document.getElementById("msgInput");
   const msgs = document.getElementById("chatMessages");
   const typing = document.getElementById("typingIndicator");
-  const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || "";
+  const csrf = document.cookie.match(/csrftoken=([^;]+)/)?.[1] || "";
 
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -262,26 +259,20 @@ UniPortal UZ{% endblock %} {% block extra_css %}
   });
 
   function appendBubble(role, text) {
-    const welcome = document.getElementById("welcomeMsg");
-    if (welcome) welcome.remove();
-
+    const w = document.getElementById("welcomeMsg");
+    if (w) w.remove();
     const wrap = document.createElement("div");
     wrap.className = `d-flex ${role === "user" ? "justify-content-end" : ""} mb-3`;
-
-    let html = "";
-    if (role === "assistant") {
-      html += `<div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white me-2 flex-shrink-0" style="width:32px;height:32px;font-size:.9rem">🤖</div>`;
-    }
-    const formatted = text
+    const fmt = text
       .replace(/\n/g, "<br>")
-      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-      .replace(/\*(.*?)\*/g, "<em>$1</em>");
-    html += `<div class="bubble ${role} p-3 shadow-sm">${formatted}</div>`;
-    wrap.innerHTML = html;
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    wrap.innerHTML =
+      (role === "assistant"
+        ? `<div class="rounded-circle bg-primary d-flex align-items-center justify-content-center text-white me-2 flex-shrink-0" style="width:32px;height:32px;font-size:.9rem">🤖</div>`
+        : "") + `<div class="bubble ${role} p-3 shadow-sm">${fmt}</div>`;
     msgs.appendChild(wrap);
     msgs.scrollTop = msgs.scrollHeight;
   }
-
   async function sendMessage() {
     const text = input.value.trim();
     if (!text) return;
@@ -290,14 +281,10 @@ UniPortal UZ{% endblock %} {% block extra_css %}
     appendBubble("user", text);
     typing.style.display = "block";
     msgs.scrollTop = msgs.scrollHeight;
-
     try {
       const resp = await fetch("/ai/api/", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": csrftoken,
-        },
+        headers: { "Content-Type": "application/json", "X-CSRFToken": csrf },
         body: JSON.stringify({ message: text }),
       });
       const data = await resp.json();
@@ -311,18 +298,22 @@ UniPortal UZ{% endblock %} {% block extra_css %}
       appendBubble("assistant", "⚠️ Connection error. Please try again.");
     }
   }
-
   function sendSuggestion(btn) {
-    const text = btn.textContent.replace(/^[^\w]+/, "").trim();
-    input.value = text;
+    input.value = btn.textContent
+      .replace(/^[^\w\u0400-\u04FF\u0400-\u04FF]+/, "")
+      .trim();
     sendMessage();
   }
-
   async function clearChat() {
-    if (!confirm("Clear this conversation?")) return;
+    if (
+      !confirm(
+        '{% if current_lang == "uz" %}Suhbatni tozalashni xohlaysizmi?{% elif current_lang == "ru" %}Очистить этот разговор?{% else %}Clear this conversation?{% endif %}',
+      )
+    )
+      return;
     await fetch("/ai/clear/", {
       method: "POST",
-      headers: { "X-CSRFToken": csrftoken },
+      headers: { "X-CSRFToken": csrf },
     });
     location.reload();
   }

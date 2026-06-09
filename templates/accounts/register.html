@@ -1,31 +1,45 @@
-{% extends 'base.html' %}
-{% block title %}Register — UniPortal UZ{% endblock %}
-{% block content %}
-<div class="min-vh-100 d-flex align-items-center justify-content-center py-5" style="background:linear-gradient(135deg,#f0f4f8,#e8edf5)">
-  <div class="card border-0 shadow-lg" style="width:100%;max-width:480px">
-    <div class="card-header text-center py-4 border-0" style="background:linear-gradient(135deg,#1a237e,#3949ab)">
+{% extends 'base.html' %} {% block title %}{{ t.create_account }} — UniPortal
+UZ{% endblock %} {% block content %}
+<div
+  class="min-vh-100 d-flex align-items-center justify-content-center py-5"
+  style="background: linear-gradient(135deg, #f0f4f8, #e8edf5)"
+>
+  <div class="card border-0 shadow-lg" style="width: 100%; max-width: 480px">
+    <div
+      class="card-header text-center py-4 border-0"
+      style="background: linear-gradient(135deg, #1a237e, #3949ab)"
+    >
       <div class="display-4 mb-2">🎓</div>
-      <h4 class="text-white fw-bold mb-0">Create Account</h4>
-      <p class="text-white opacity-75 small mb-0">Join UniPortal UZ — free forever</p>
+      <h4 class="text-white fw-bold mb-0">{{ t.create_account }}</h4>
+      <p class="text-white opacity-75 small mb-0">{{ t.join_subtitle }}</p>
     </div>
     <div class="card-body p-4">
       <form method="post">
         {% csrf_token %}
         <div class="row g-3">
           {% for field in form %}
-          <div class="{% if field.name == 'username' or field.name == 'email' %}col-12{% else %}col-sm-6{% endif %}">
-            <label class="form-label fw-semibold small">{{ field.label }}</label>
-            {{ field }}
-            {% for err in field.errors %}<div class="text-danger small">{{ err }}</div>{% endfor %}
+          <div
+            class="{% if field.name == 'username' or field.name == 'email' %}col-12{% else %}col-sm-6{% endif %}"
+          >
+            <label class="form-label fw-semibold small"
+              >{{ field.label }}</label
+            >
+            {{ field }} {% for err in field.errors %}
+            <div class="text-danger small">{{ err }}</div>
+            {% endfor %}
           </div>
           {% endfor %}
         </div>
-        <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold py-2 mt-4">
-          <i class="bi bi-person-plus me-2"></i>Create Account
+        <button
+          type="submit"
+          class="btn btn-primary w-100 rounded-pill fw-bold py-2 mt-4"
+        >
+          <i class="bi bi-person-plus me-2"></i>{{ t.register_btn }}
         </button>
       </form>
       <p class="text-center mt-3 mb-0 small text-muted">
-        Already have an account? <a href="{% url 'login' %}" class="fw-semibold">Login</a>
+        {{ t.have_account }}
+        <a href="{% url 'login' %}" class="fw-semibold">{{ t.nav_login }}</a>
       </p>
     </div>
   </div>

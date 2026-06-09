@@ -9,4 +9,5 @@ urlpatterns = [
     path('accounts/', include('apps.accounts.urls')),
     path('ai/', include('apps.ai_assistant.urls')),
     path('dashboard/', include('apps.dashboard.urls')),
+    path('i18n/', include('apps.core.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from django.http import JsonResponse
 from .models import University, Faculty, FavoriteUniversity
 from .forms import UniversityForm, FacultyForm, SearchForm
+from apps.core.translations import get_t
 
 def is_admin(user):
     return user.is_authenticated and (user.is_staff or user.profile.role == 'admin')
@@ -21,15 +22,41 @@ def home(request):
         for city in University.objects.values_list('city', flat=True)
         if city
     )
-)
-    recent    = University.objects.order_by('-created_at')[:4]
+    )
+    recent = University.objects.order_by('-created_at')[:4]
+
+    lang = request.session.get("lang", "en")
+    t = get_t(lang)
+
+    hero_subtitle = t["hero_subtitle"].format(
+    uni=total_uni,
+    fac=total_fac
+    )
+
     return render(request, 'universities/home.html', {
-        'featured': featured, 'total_uni': total_uni,
-        'total_fac': total_fac, 'cities': cities, 'recent': recent,
-    })
+    'featured': featured,
+    'total_uni': total_uni,
+    'total_fac': total_fac,
+    'cities': cities,
+    'recent': recent,
+    'hero_subtitle': hero_subtitle,
+})
+    
 
 def university_list(request):
     form = SearchForm(request.GET)
+    lang = request.session.get("lang", "en")
+    from apps.core.translations import get_t
+
+    t = get_t(lang)
+
+    form.fields['q'].widget.attrs['placeholder'] = t['search_placeholder']
+    form.fields['field'].widget.attrs['placeholder'] = t['field_placeholder']
+    form.fields['min_score'].widget.attrs['placeholder'] = t['score_placeholder']
+    form.fields['max_tuition'].widget.attrs['placeholder'] = t['tuition_placeholder']
+
+    form.fields['city'].choices[0] = ('', t['all_cities'])
+    form.fields['uni_type'].choices[0] = ('', t['all_types'])
     qs   = University.objects.prefetch_related('faculties').annotate(
                fac_count=Count('faculties'),
                min_t=Min('faculties__tuition_usd'),
