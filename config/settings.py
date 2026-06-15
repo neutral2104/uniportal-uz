@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'apps.ai_assistant',
     'apps.dashboard',
     'apps.core',
+    'apps.scheduler',
 ]
 
 MIDDLEWARE = [

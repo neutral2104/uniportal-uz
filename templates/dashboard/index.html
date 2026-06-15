@@ -7,8 +7,7 @@ t.dashboard_title }} — UniPortal UZ{% endblock %} {% block content %}
     <div>
       <h2 class="fw-bold mb-0">{{ t.dashboard_title }}</h2>
       <p class="text-muted small mb-0">
-        Welcome back, {{ request.user.first_name|default:request.user.username
-        }}!
+        Welcome back, {{request.user.first_name|default:request.user.username}}!
       </p>
     </div>
     <div class="d-flex gap-2">
@@ -119,8 +118,8 @@ t.dashboard_title }} — UniPortal UZ{% endblock %} {% block content %}
           class="card-header bg-transparent fw-semibold border-0 pt-3 d-flex justify-content-between"
         >
           <span
-            ><i class="bi bi-building me-2 text-primary"></i>{{
-            t.recently_added_dash }}</span
+            ><i class="bi bi-building me-2 text-primary"></i>
+            {{t.recently_added_dash }}</span
           >
           <a
             href="{% url 'uni_list' %}"
